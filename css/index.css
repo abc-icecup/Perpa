@@ -1,0 +1,593 @@
+/* === GLOBAL === */
+body {
+  font-family: 'montserrat', inter;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === TOP BAR === */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.top-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-toggle {
+  width: 24px;   /* kecilkan ikon */
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  /* margin-right: 10px; */
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+.logo img {
+  height: 80px; /* Atur ukuran logo sesuai kebutuhan */
+  width: 120px;
+  align-items: center;
+  margin-left: 0; /* Jarak antara logo dan ikon lainnya */
+    /* justify-content: flex-start; */
+}
+
+.top-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-center {
+  display: flex;
+  justify-content: space-between;
+  position: relative; /* Membuat container relatif agar ikon bisa diposisikan secara absolute */
+  align-items: center;
+  /* height: 20px;
+  width: 500px;  */
+}
+
+.search-bar {
+  padding: 6px 10px;
+  height: 20px;
+  width: 500px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding-right: 30px; /* Memberikan ruang di kanan untuk ikon */
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px; /* Menempatkan ikon di kanan */
+  top: 50%;
+  transform: translateY(-50%); /* Mengatur ikon agar tetap sejajar vertikal */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+.notif-icon, .user-icon {
+  width: 24px;   /* kecilkan ikon */
+  height: 28px;
+  cursor: pointer;
+}
+
+/* === CONTAINER === */
+.container {
+  display: flex;
+  flex: 1;
+  margin-top: 60px; /* supaya tidak tertutup topbar */
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 220px;
+  background-color: #fff;
+  border-right: 1px solid #E5E5E5;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  padding: 20px 10px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.sidebar .logo-text {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  transition: opacity 0.3s;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.sidebar .icon {
+  width: 26px;    /* kecil dan rapi seperti gambar ke-2 */
+  height: 26px;
+  stroke-width: 1.5;
+  flex-shrink: 0; /* biar tidak berubah saat sidebar di-collapse */
+}
+
+.sidebar .text {
+  transition: opacity 0.3s;
+}
+
+.sidebar.collapsed ul li {
+  gap: 0;              /* hilangkan jarak antar icon dan teks */
+}
+
+.sidebar.collapsed .text {
+  display: none;       /* sembunyikan teks sepenuhnya, bukan cuma opacity */
+  opacity: 0;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  margin-left: 240px;
+  transition: margin-left 0.3s ease;
+  box-sizing: border-box; /* penting untuk padding aman di mobile */
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 80px; /* saat sidebar ditutup */
+}
+
+/* === DASHBOARD === */
+.dashboard {
+  margin-top: 10px;
+}
+
+/* === CARD STATUS === */
+
+.status-cards {
+  display: grid;
+  grid-template-areas:
+    "kondisi kunci pintu"
+    "sistem jumlah pintu";
+  grid-template-columns: repeat(2, 1fr) 1.2fr;
+  gap: 20px;
+}
+
+/* --- Area mapping --- */
+.card.kondisi { grid-area: kondisi; }
+.card.kunci { grid-area: kunci; }
+.card.sistem { grid-area: sistem; }
+.card.jumlah { grid-area: jumlah; }
+.card.pintu { grid-area: pintu; }
+
+/* --- Card Style --- */
+.card {
+  background: #fff;
+  border: 1px solid #D9D9D9;
+  border-radius: 12px;
+  padding: 18px 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Judul di atas — Inter Bold, agak kecil, lebih ke atas */
+.card h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;      /* jarak lebih kecil agar terlihat naik sedikit */
+  margin-top: 2px;         /* beri sedikit spasi dari atas card */
+  letter-spacing: 0.3px;
+}
+
+/* --- Status value --- */
+.status-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px; /* jarak agar terasa lega dari judul */
+}
+
+.status-value.besar {
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* --- Teks status di bawah judul --- */
+.text-status {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 25px; /* lebih besar dari judul */
+  line-height: 1.2;
+  margin-top: 15px;
+}
+
+/* Warna sesuai jenis status */
+.text-status.biru {
+  color: #14B8A6;
+}
+
+.text-status.hijau {
+  color: #00A651;
+}
+
+.text-status.hijau.besar {
+  color: #14B8A6;
+}
+
+/* Angka dijadikan patokan ukuran terbesar */
+.text-status.angka {
+  font-size: 28px;
+  color: #000;
+}
+
+/* Ikon */
+.icon {
+  width: 35px;
+  font-size: 20px;
+}
+
+.icon.besar {
+  font-size: 45px;
+}
+
+/* Untuk status besar (misal “Aman”) */
+.text-status.besar {
+  font-size: 28px;
+}
+
+
+/* --- Dot indikator --- */
+.dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-top: 15px;
+}
+
+.dot.kondisi {
+  background-color: #14B8A6;
+}
+
+
+/* === RIWAYAT AKSES === */
+.riwayat-card {
+  background: #fff;
+  margin-top: 20px;
+  border: 1px solid #D9D9D9;
+  border-radius: 12px;
+  padding: 12px 18px 18px 18px; /* padding atas dikurangi agar judul naik */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Judul */
+.riwayat-card h3 {
+  font-size: 16px;
+  margin-left: 2px; /* sejajarkan dengan tabel kiri */
+  margin-top: 0; /* supaya lebih rapat ke atas */
+  margin-bottom: 10px; /* jarak ke tabel diperkecil */
+  font-weight: 600;
+}
+
+/* === REVISI KHUSUS PENYUSUNAN KOLOM TABEL === */
+.riwayat-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: 2px;
+  table-layout: fixed; /* biar kontrol lebar kolom bisa akurat */
+}
+
+/* Semua cell tetap rapi */
+.riwayat-card th,
+.riwayat-card td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #E5E5E5;
+  text-align: left;
+}
+
+/* Batasi lebar kolom supaya seimbang */
+.riwayat-card th:nth-child(1),
+.riwayat-card td:nth-child(1) {
+  width: 70px; /* kolom Waktu tetap */
+}
+
+.riwayat-card th:nth-child(2),
+.riwayat-card td:nth-child(2) {
+  width: 120px; /* batasi kolom ID RFID agar tidak melar */
+  text-align: left;
+}
+
+.riwayat-card th:nth-child(3),
+.riwayat-card td:nth-child(3) {
+  width: auto; /* sisanya fleksibel untuk Nama */
+  text-align: left;
+}
+
+
+
+/* Tombol (tidak diubah) */
+.btn-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.riwayat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background-color: #EAEAEA;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.riwayat-btn:hover {
+  background-color: #14B8A6;
+}
+
+.riwayat-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* === RESPONSIVE FIXED VERSION === */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-wrap: nowrap;              /* jangan melipat baris */
+    height: 55px;                   /* lebih ramping */
+    padding: 0 12px;
+  }
+
+  .sidebar {
+    top: 55px; /* sejajar topbar */
+  }
+
+  .sidebar.collapsed {
+    width: 50px;
+    padding: 16px 6px;
+  }
+
+  .logo img {
+    height: 70px;
+    width: 95px;
+  }
+
+  .menu-toggle {
+    width: 22px;
+    height: 24px;
+  }
+
+  .top-center {
+    flex: 1;                        /* isi ruang tengah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .search-bar {
+    width: 70%;
+    max-width: 220px;
+    height: 25px;
+    font-size: 13px;
+    padding: 5px 30px 5px 10px;
+  }
+
+  .search-icon {
+    position: relative;
+    right: 40px; /* Menempatkan ikon di kanan */
+    top: 50%;
+    transform: translateY(-10%); /* Mengatur ikon agar tetap sejajar vertikal */
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .top-actions {
+    gap: 8px;
+  }
+
+  .notif-icon,
+  .user-icon {
+    width: 20px;
+    height: 22px;
+  }
+
+  .status-cards {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "kondisi kunci"
+      "sistem jumlah"
+      "pintu pintu";
+    gap: 15px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .riwayat-card h3 {
+    font-size: 15px;
+  }
+
+  /* Tabel: tambahkan scroll horizontal agar tidak pecah */
+  .riwayat-card table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Versi HP kecil */
+@media (max-width: 480px) {
+  .top-bar {
+    height: 50px;
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    top: 50px; /* sejajar topbar mobile */
+  }
+
+  .sidebar.collapsed {
+    width: 50px;
+  }
+
+  .search-bar {
+    width: 60%;
+    max-width: 180px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 40px; /* Menempatkan ikon di kanan */
+    top: 50%;
+    transform: translateY(-50%); /* Mengatur ikon agar tetap sejajar vertikal */
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  .logo img {
+    height: 50px;
+    width: 70px;
+  }
+
+  .notif-icon,
+  .user-icon,
+  .menu-toggle {
+    width: 18px;
+    height: 20px;
+  }
+
+  .main-content {
+    padding: 0 12px; /* ruang kiri-kanan biar tidak mepet */
+  }
+
+  .status-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .status-cards .card {
+    width: 80%;
+    max-width: 330px; /* biar card tidak terlalu besar */
+    margin: 0 auto;
+  }
+
+  /* Pastikan posisi tidak berubah saat sidebar dibuka */
+  .sidebar:not(.collapsed) ~ .main-content .status-cards {
+    transform: none;
+  }
+
+  /* Riwayat */
+  .riwayat-card {
+    /* padding: 10px 12px; */
+
+    width: 80%;
+    max-width: 330px;
+    margin: 0 auto;
+    margin-top: 14px;
+  }
+
+  .riwayat-card h3 {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .riwayat-card table {
+    font-size: 13px;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  /* Alternatif tampilan mobile-friendly (opsional) */
+  .riwayat-card td,
+  .riwayat-card th {
+    padding: 8px 6px;
+  }
+
+  /* Tombol riwayat */
+  .btn-center {
+    margin-top: 14px;
+  }
+
+  .riwayat-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+}

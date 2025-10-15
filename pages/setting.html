@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaturan | Perpa Smart Lock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/setting.css">
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Perpa Smart Lock" class="logo">
+                <h2>Perpa<br><span>Smart Lock</span></h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item"><i class="icon-home"></i> Dashboard</a>
+                <a href="#" class="nav-item"><i class="icon-clock"></i> Riwayat Akses</a>
+                <a href="#" class="nav-item"><i class="icon-users"></i> Kelola Pengguna</a>
+                <a href="#" class="nav-item active"><i class="icon-settings"></i> Pengaturan</a>
+            </nav>
+        </aside>
+
+        <!-- MAIN SECTION -->
+        <div class="main-content">
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button id="menu-btn" class="menu-toggle">&#9776;</button>
+                <div class="search-container">
+                    <input type="text" placeholder="Cari...">
+                </div>
+                <div class="topbar-icons">
+                    <i class="icon-bell"></i>
+                    <i class="icon-user"></i>
+                </div>
+            </header>
+
+            <!-- SETTINGS CONTENT -->
+            <section class="settings">
+                <div class="settings-card">
+                    <h3>Hubungkan Website dengan Telegram</h3>
+
+                    <label>Token bot Telegram</label>
+                    <input type="text" placeholder="Masukkan Token">
+
+                    <label>Chat ID</label>
+                    <input type="text" placeholder="Masukkan Chat ID">
+
+                    <label>Jam Operasional Notifikasi</label>
+                    <div class="time-picker-group">
+                        <div class="time-input">
+                            <input type="text" placeholder="Pilih Waktu Mulai" id="start-time" readonly>
+                        </div>
+                        <div class="time-input">
+                            <input type="text" placeholder="Pilih Waktu Berakhir" id="end-time" readonly>
+                        </div>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn-cancel">Batal</button>
+                        <button class="btn-save">Simpan</button>
+                        <button class="btn-sync">Sinkronisasi Perangkat</button>
+                    </div>
+                </div>
+
+                <div class="duration-card">
+                    <label>Durasi Kunci Pintu Terbuka</label>
+                    <div class="duration-input">
+                        <input type="number" value="5" min="1"> <span>Menit</span>
+                    </div>
+                    <button class="btn-danger">Restart Perangkat</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+  <script src="../js/setting.js"></script>
+</body>
+</html>
