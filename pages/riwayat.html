@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Akses - Perpa Smart Lock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/riwayat.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="https://via.placeholder.com/40" alt="Logo">
+        <div class="logo-text">
+          <h1>Perpa</h1>
+          <span>Smart Lock</span>
+        </div>
+      </div>
+      <ul class="menu">
+        <li><i class="icon">🏠</i> Dashboard</li>
+        <li class="active"><i class="icon">⏰</i> Riwayat Akses</li>
+        <li><i class="icon">👥</i> Kelola Pengguna</li>
+        <li><i class="icon">⚙️</i> Pengaturan</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="topbar">
+        <div class="search-box">
+          <input type="text" placeholder="Cari...">
+          <i class="search-icon">🔍</i>
+        </div>
+        <div class="top-actions">
+          <button class="notif-btn">🔔</button>
+          <button class="user-btn">👤</button>
+        </div>
+      </header>
+
+        <section class="content-wrapper">
+        <div class="content-header">
+            <h2>Riwayat Akses Pintu Rumah Aman</h2>
+            <div class="export-buttons">
+            <button class="export pdf">Export PDF</button>
+            <button class="export excel">Export Excel</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Waktu</th>
+                    <th>ID RFID</th>
+                    <th>Nama</th>
+                    <th>Kondisi pintu</th>
+                    <th>Status Kunci</th>
+                    <th>Status Akses</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>10/04/2025</td>
+                    <td>08.30</td>
+                    <td>-</td>
+                    <td>Sistem</td>
+                    <td><span class="badge tertutup">Tertutup</span></td>
+                    <td><span class="badge terkunci">Terkunci</span></td>
+                    <td><span class="status sistem">⚙️ Sistem</span></td>
+                </tr>
+                <tr>
+                    <td>10/04/2025</td>
+                    <td>08.30</td>
+                    <td>ABC1234567</td>
+                    <td>Ayu</td>
+                    <td><span class="badge terbuka">Terbuka</span></td>
+                    <td><span class="badge tidak-terkunci">Tidak Terkunci</span></td>
+                    <td><span class="status sukses">✅ Sukses</span></td>
+                </tr>
+                <tr>
+                    <td>10/04/2025</td>
+                    <td>07.50</td>
+                    <td>-</td>
+                    <td>Sistem</td>
+                    <td><span class="badge tertutup">Tertutup</span></td>
+                    <td><span class="badge terkunci">Terkunci</span></td>
+                    <td><span class="status sistem">⚙️ Sistem</span></td>
+                </tr>
+                <tr>
+                    <td>10/04/2025</td>
+                    <td>07.45</td>
+                    <td>ABC1234567</td>
+                    <td>Yanti</td>
+                    <td><span class="badge terbuka">Terbuka</span></td>
+                    <td><span class="badge tidak-terkunci">Tidak Terkunci</span></td>
+                    <td><span class="status sukses">✅ Sukses</span></td>
+                </tr>
+                <tr>
+                    <td>10/04/2025</td>
+                    <td>07.00</td>
+                    <td>123ABSD567</td>
+                    <td>-</td>
+                    <td><span class="badge tertutup">Tertutup</span></td>
+                    <td><span class="badge terkunci">Terkunci</span></td>
+                    <td><span class="status gagal">⚠️ Gagal</span></td>
+                </tr>
+                <tr>
+                    <td>10/04/2025</td>
+                    <td>06.30</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class="badge tertutup">Tertutup</span></td>
+                    <td><span class="badge terkunci">Terkunci</span></td>
+                    <td><span class="status ilegal">❗ Ilegal</span></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </section>
+
+    </main>
+  </div>
+</body>
+</html>

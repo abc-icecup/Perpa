@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: white;
+  padding: 20px 0;
+  border-right: 1px solid #ddd;
+  border-radius: 0 20px 20px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 20px 30px;
+}
+
+.logo h1 {
+  font-weight: 700;
+  color: #0099cc;
+}
+
+.logo span {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  padding: 12px 25px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s;
+  border-radius: 10px;
+  margin: 5px 15px;
+}
+
+.menu li:hover,
+.menu li.active {
+  background: #f0f0f0;
+}
+
+/* Main Area */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 6px 12px;
+  width: 280px;
+  background: white;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+
+.top-actions button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* header di luar tabel */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 0 5px;
+}
+
+.content-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* tombol export */
+.export-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.export {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.export.pdf {
+  background: #e53935;
+}
+
+.export.excel {
+  background: #2e7d32;
+}
+
+/* kotak tabel tetap seperti sebelumnya */
+.content {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+thead {
+  background: #fafafa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.tertutup { background: #00bfa5; }
+.terbuka { background: #e53935; }
+.terkunci { background: #00bfa5; }
+.tidak-terkunci { background: #e53935; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.status.sistem { color: #444; }
+.status.sukses { color: #2e7d32; }
+.status.gagal { color: #f9a825; }
+.status.ilegal { color: #d32f2f; }
+
+tbody tr:hover {
+  background: #f8f8f8;
+  transition: 0.2s;
+}
