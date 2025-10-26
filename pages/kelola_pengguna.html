@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perpa Smart Lock - Kelola Pengguna</title>
+  <title>Kelola Pengguna</title>
+
+  <!-- 🔹 Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .text-primary { color: #14B8A6; }
-    .bg-primary { background-color: #14B8A6; }
-  </style>
+
+  <!-- 🔹 File CSS Eksternal -->
+  <link rel="stylesheet" href="../css/kelola_pengguna.css">
 </head>
 
 <body class="bg-gray-50 font-sans">
@@ -58,65 +59,31 @@
 
   <!-- 🔹 Kontainer Utama -->
   <main class="p-6 mt-16 ml-0 md:ml-64">
-    <!-- Tombol Tambah Pengguna -->
     <div class="flex justify-end mb-2">
       <button id="openModalBtn" class="bg-gray-300 text-sm px-4 py-2 rounded-lg hover:bg-gray-400">+ Tambah Pengguna</button>
     </div>
 
-    <!-- 🔹 Kotak berisi Judul + Tabel -->
     <div class="border rounded-xl shadow-sm p-4 w-full bg-white">
       <h2 class="text-lg font-semibold mb-2">Kelola Pengguna Akses Pintu Rumah Aman</h2>
-     <table id="tabelPengguna" class="w-full text-left border-collapse">
-  <thead>
-    <tr class="border-b bg-gray-50">
-      <th class="py-2 px-3">Nama</th>
-      <th class="py-2 px-3">Jabatan</th>
-      <th class="py-2 px-3">ID RFID</th>
-      <th class="py-2 px-3">Status</th>
-      <th class="py-2 px-3">Aksi</th>
-    </tr>
-  </thead>
-  <tbody id="tabelBody">
-    <tr class="border-b">
-      <td class="py-2 px-3">Ayu</td>
-      <td>Petugas kebersihan</td>
-      <td>ABC1234567</td>
-      <td>Aktif</td>
-      <td class="flex items-center gap-2 py-2">
-        <button class="bg-red-500 text-white px-3 py-1 rounded text-sm w-24">Nonaktifkan</button>
-        <div class="relative flex items-center">
-          <button class="text-gray-600 px-2" onclick="toggleMenu(this)">⋮</button>
-          <div class="hidden absolute right-0 mt-2 w-24 bg-white border rounded shadow-lg z-10">
-            <button class="flex items-center gap-1 px-2 py-1 w-full hover:bg-gray-100 text-sm">✏️ Edit</button>
-            <button class="flex items-center gap-1 px-2 py-1 w-full hover:bg-gray-100 text-sm">🗑️ Hapus</button>
-          </div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="py-2 px-3">Yanti</td>
-      <td>Penjaga rumah</td>
-      <td>XYZ9876543</td>
-      <td>Nonaktif</td>
-      <td class="flex items-center gap-2 py-2">
-        <button class="bg-green-500 text-white px-3 py-1 rounded text-sm w-24">Aktifkan</button>
-        <div class="relative flex items-center">
-          <button class="text-gray-600 px-2" onclick="toggleMenu(this)">⋮</button>
-          <div class="hidden absolute right-0 mt-2 w-24 bg-white border rounded shadow-lg z-10">
-            <button class="flex items-center gap-1 px-2 py-1 w-full hover:bg-gray-100 text-sm">✏️ Edit</button>
-            <button class="flex items-center gap-1 px-2 py-1 w-full hover:bg-gray-100 text-sm">🗑️ Hapus</button>
-          </div>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      <table id="tabelPengguna" class="w-full border-collapse text-sm">
+        <thead>
+          <tr class="border-b bg-gray-50 text-gray-700">
+            <th class="py-2 px-3 text-left w-[20%]">Nama</th>
+            <th class="py-2 px-3 text-left w-[30%]">Jabatan</th>
+            <th class="py-2 px-3 text-left w-[20%]">ID RFID</th>
+            <th class="py-2 px-3 text-left w-[15%]">Status</th>
+            <th class="py-2 px-3 text-left w-[15%]">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody" class="align-middle text-gray-800"></tbody>
+      </table>
+    </div>
+  </main>
 
-<!-- 🔹 MODAL TAMBAH PENGGUNA -->
+  <!-- 🔹 MODAL TAMBAH PENGGUNA -->
   <div id="modalTambah" class="fixed inset-0 bg-black bg-opacity-40 hidden z-[9999] flex items-center justify-center">
     <div class="relative bg-white rounded-xl shadow-lg w-80 h-auto p-6 pb-8 overflow-visible">
 
-      <!-- Tombol X -->
       <button id="closeModalBtn"
         class="absolute top-3 left-3 bg-black text-white w-7 h-7 rounded-full flex items-center justify-center text-base font-bold hover:bg-gray-800 focus:outline-none transition-all duration-200 shadow-sm">
         &times;
@@ -127,17 +94,17 @@
       <form id="formTambah">
         <div class="mb-3">
           <label class="block text-sm font-medium text-black mb-1">Nama</label>
-          <input id="namaInput" type="text" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400" placeholder="Masukkan nama anda">
+          <input id="namaInput" type="text" class="input-field" placeholder="Masukkan nama anda">
         </div>
 
         <div class="mb-3">
           <label class="block text-sm font-medium text-black mb-1">Jabatan</label>
-          <input id="jabatanInput" type="text" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400" placeholder="Jabatan anda di dinas PPPA">
+          <input id="jabatanInput" type="text" class="input-field" placeholder="Jabatan anda di dinas PPPA">
         </div>
 
         <div class="mb-6">
           <label class="block text-sm font-medium text-black mb-1">ID RFID</label>
-          <input id="rfidInput" type="text" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400" placeholder="Masukkan no ID RFID">
+          <input id="rfidInput" type="text" class="input-field" placeholder="Masukkan no ID RFID">
         </div>
 
         <div class="flex justify-center gap-4 mt-6">
@@ -148,156 +115,8 @@
     </div>
   </div>
 
- <script>
-  // 🔹 Menu titik tiga
-  function toggleMenu(btn) {
-    const menu = btn.nextElementSibling;
-    document.querySelectorAll(".relative .absolute").forEach(m => {
-      if (m !== menu) m.classList.add("hidden");
-    });
-    menu.classList.toggle("hidden");
-  }
-
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".relative")) {
-      document.querySelectorAll(".relative .absolute").forEach(m => m.classList.add("hidden"));
-    }
-  });
-
-  // 🔹 Modal Tambah Pengguna
-  const openModalBtn = document.getElementById("openModalBtn");
-  const modalTambah = document.getElementById("modalTambah");
-  const closeModalBtn = document.getElementById("closeModalBtn");
-  const closeModalBtn2 = document.getElementById("closeModalBtn2");
-  const formTambah = document.getElementById("formTambah");
-  const tableBody = document.querySelector("#tabelPengguna tbody");
-
-  let editMode = false;
-  let editTarget = null;
-
-  openModalBtn.addEventListener("click", () => {
-    formTambah.reset();
-    editMode = false;
-    modalTambah.classList.remove("hidden");
-  });
-
-  closeModalBtn.addEventListener("click", () => modalTambah.classList.add("hidden"));
-  closeModalBtn2.addEventListener("click", () => modalTambah.classList.add("hidden"));
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modalTambah) modalTambah.classList.add("hidden");
-  });
-
-  // 🔹 Fungsi tambah baris
-  function tambahBaris(nama, jabatan, idRfid) {
-    const newRow = document.createElement("tr");
-    newRow.classList.add("border-b");
-    newRow.innerHTML = `
-      <td class="py-2 px-3">${nama}</td>
-      <td>${jabatan}</td>
-      <td>${idRfid}</td>
-      <td>Aktif</td>
-      <td class="flex items-center gap-2 py-2">
-        <button class="bg-red-500 text-white px-3 py-1 rounded text-sm w-24">Nonaktifkan</button>
-        <div class="relative flex items-center">
-          <button class="text-gray-600 px-2" onclick="toggleMenu(this)">⋮</button>
-          <div class="hidden absolute right-0 mt-2 w-24 bg-white border rounded shadow-lg z-10">
-            <button class="flex items-center gap-1 px-2 py-1 w-full hover:bg-gray-100 text-sm editBtn">✏️ Edit</button>
-            <button class="flex items-center gap-1 px-2 py-1 w-full hover:bg-gray-100 text-sm hapusBtn">🗑️ Hapus</button>
-          </div>
-        </div>
-      </td>
-    `;
-    tableBody.appendChild(newRow);
-
-    // 🔹 Event tombol hapus
-    newRow.querySelector(".hapusBtn").addEventListener("click", function () {
-      if (confirm(`Hapus pengguna "${nama}"?`)) {
-        hapusData(nama, idRfid);
-        newRow.remove();
-      }
-    });
-
-    // 🔹 Event tombol edit
-    newRow.querySelector(".editBtn").addEventListener("click", function () {
-      const namaCell = newRow.children[0].innerText;
-      const jabatanCell = newRow.children[1].innerText;
-      const idRfidCell = newRow.children[2].innerText;
-
-      document.getElementById("namaInput").value = namaCell;
-      document.getElementById("jabatanInput").value = jabatanCell;
-      document.getElementById("rfidInput").value = idRfidCell;
-
-      editMode = true;
-      editTarget = { row: newRow, oldNama: namaCell, oldIdRfid: idRfidCell };
-
-      modalTambah.classList.remove("hidden");
-    });
-  }
-
-  // 🔹 Hapus data dari localStorage
-  function hapusData(nama, idRfid) {
-    const dataPengguna = JSON.parse(localStorage.getItem("dataPengguna")) || [];
-    const dataBaru = dataPengguna.filter(
-      (item) => !(item.nama === nama && item.idRfid === idRfid)
-    );
-    localStorage.setItem("dataPengguna", JSON.stringify(dataBaru));
-  }
-
-  // 🔹 Update data ke localStorage
-  function updateData(oldNama, oldIdRfid, newData) {
-    let dataPengguna = JSON.parse(localStorage.getItem("dataPengguna")) || [];
-    const index = dataPengguna.findIndex(
-      (item) => item.nama === oldNama && item.idRfid === oldIdRfid
-    );
-    if (index !== -1) {
-      dataPengguna[index] = newData;
-      localStorage.setItem("dataPengguna", JSON.stringify(dataPengguna));
-    }
-  }
-
-  // 🔹 Tampilkan data tersimpan saat load
-  window.addEventListener("DOMContentLoaded", () => {
-    const dataPengguna = JSON.parse(localStorage.getItem("dataPengguna")) || [];
-    dataPengguna.forEach(item => tambahBaris(item.nama, item.jabatan, item.idRfid));
-  });
-
-  // 🔹 Submit form (tambah / edit)
-  formTambah.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const nama = document.getElementById("namaInput").value.trim();
-    const jabatan = document.getElementById("jabatanInput").value.trim();
-    const idRfid = document.getElementById("rfidInput").value.trim();
-
-    if (!nama || !jabatan || !idRfid) {
-      alert("Semua kolom wajib diisi!");
-      return;
-    }
-
-    if (editMode && editTarget) {
-      // 🔸 Update data tabel
-      editTarget.row.children[0].innerText = nama;
-      editTarget.row.children[1].innerText = jabatan;
-      editTarget.row.children[2].innerText = idRfid;
-
-      // 🔸 Update localStorage
-      updateData(editTarget.oldNama, editTarget.oldIdRfid, { nama, jabatan, idRfid });
-
-      editMode = false;
-      editTarget = null;
-    } else {
-      // 🔸 Tambah data baru
-      tambahBaris(nama, jabatan, idRfid);
-
-      const dataPengguna = JSON.parse(localStorage.getItem("dataPengguna")) || [];
-      dataPengguna.push({ nama, jabatan, idRfid });
-      localStorage.setItem("dataPengguna", JSON.stringify(dataPengguna));
-    }
-
-    formTambah.reset();
-    modalTambah.classList.add("hidden");
-  });
-</script>
-
+  <!-- 🔹 Script -->
+  <script type="module" src="../api/firebase_config.js"></script>
+  <script type="module" src="../js/pengguna.js"></script>
 </body>
 </html>

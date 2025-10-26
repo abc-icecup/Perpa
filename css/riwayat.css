@@ -111,18 +111,19 @@ body {
 }
 
 /* header di luar tabel */
-.content-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
-  padding: 0 5px;
+.content h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
 }
 
-.content-header h2 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #333;
+/* tombol export tetap di luar */
+.content-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 /* tombol export */

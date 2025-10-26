@@ -55,6 +55,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
+  color: #000;
 }
 
 .top-center {
@@ -289,13 +290,24 @@ body {
   font-size: 20px;
 }
 
+.icon-kunci {
+  width: 35px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .icon.besar {
   font-size: 45px;
+}
+
+.secure {
+  margin-top: 10px;
 }
 
 /* Untuk status besar (misal “Aman”) */
 .text-status.besar {
   font-size: 28px;
+  margin-top: 5px;
 }
 
 

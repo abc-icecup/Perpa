@@ -1,0 +1,64 @@
+.text-primary { color: #14B8A6; }
+.bg-primary { background-color: #14B8A6; }
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  margin: 40px;
+  color: #222;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.notif-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Warna ikon sesuai status */
+.success { background-color: #025e28; }   /* hijau */
+.warning { background-color: #f1c40f; }   /* kuning */
+.error   { background-color: #951406; }   /* merah */
+
+.notif-text h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.notif-text p {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.time {
+  font-size: 13px;
+  color: #999;
+  white-space: nowrap;
+}

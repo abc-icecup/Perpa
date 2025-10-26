@@ -1,19 +1,7 @@
 // js/login.js
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { app } from "../api/firebase_config.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-// === Konfigurasi Firebase ===
-const firebaseConfig = {
-    apiKey: "AIzaSyDEWoyMTrhtn0z8fzXjSLD8pA6ABD5f1nE",
-    authDomain: "perpa-smart-lock.firebaseapp.com",
-    projectId: "perpa-smart-lock",
-    storageBucket: "perpa-smart-lock.firebasestorage.app",
-    messagingSenderId: "1062552963709",
-    appId: "1:1062552963709:web:caa81d7851fef9d6627f14"
-};
-
-// === Inisialisasi Firebase ===
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // === Elemen UI ===

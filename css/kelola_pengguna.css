@@ -1,0 +1,40 @@
+/* Warna Utama */
+.text-primary {
+  color: #14B8A6;
+}
+
+.bg-primary {
+  background-color: #14B8A6;
+}
+
+/* Input Field Custom */
+.input-field {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: #14B8A6;
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.3);
+}
+
+#tabelPengguna th,
+#tabelPengguna td {
+  vertical-align: middle;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+}
+
+#tabelPengguna th {
+  font-weight: 650;
+  color: #000;
+}
+
+#tabelPengguna td {
+  color: #000;
+}
+
