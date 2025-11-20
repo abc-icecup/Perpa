@@ -1,0 +1,128 @@
+/* === GLOBAL === */
+body {
+  font-family: 'montserrat', inter;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === TOP BAR === */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-toggle {
+  width: 24px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.menu-toggle:hover { transform: scale(1.1); }
+
+.logo img {
+  height: 80px;
+  width: 120px;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notif-icon, .user-icon {
+  width: 24px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 220px;
+  background-color: #fff;
+  border-right: 1px solid #E5E5E5;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  padding: 20px 10px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed { width: 60px; }
+
+.sidebar ul { list-style: none; padding: 0; margin: 0; }
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li:hover, .sidebar ul li.active {
+  background-color: #f0f0f0;
+}
+
+.sidebar .icon {
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+.sidebar .text {
+  transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .text {
+  display: none;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  flex: 1;
+  padding: 25px;
+  margin-top: 60px;
+  margin-left: 220px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 60px;
+}
+
+/* === RESPONSIVE FIXED === */
+@media (max-width: 768px) {
+  .top-bar { height: 55px; }
+  .sidebar { top: 55px; width: 180px; }
+  .sidebar.collapsed { width: 55px; }
+  .main-content { margin-left: 180px; }
+  .sidebar.collapsed ~ .main-content { margin-left: 55px; }
+}
