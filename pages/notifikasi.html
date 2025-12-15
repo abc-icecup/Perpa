@@ -1,153 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perpa Smart Lock - Notifikasi</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpa Smart Lock - Notifikasi</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- CSS Eksternal -->
-  <link rel="stylesheet" href="../css/notifikasi.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/notifikasi.css">
 </head>
 
-<body class="bg-gray-50 font-sans">
+<body class="app-body">
 
-  <!-- 🔹 Header -->
-  <header class="fixed top-0 left-0 right-0 bg-white shadow z-50 flex items-center justify-between px-6 py-2">
-    <div class="flex items-center gap-3">
-      <button id="menu-btn" class="p-2 rounded-md hover:bg-gray-100 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">P</div>
-        <div>
-          <h1 class="font-semibold text-lg text-primary">Perpa</h1>
-          <p class="text-xs text-gray-500 -mt-1">Smart Lock</p>
+    <!-- ========== HEADER ========== -->
+    <header class="app-header">
+        <div class="header-left">
+            <button id="menu-btn" class="icon-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div class="brand">
+                <div class="brand-logo">P</div>
+                <div>
+                    <h1 class="brand-title">Perpa</h1>
+                    <p class="brand-sub">Smart Lock</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- 🔸 Ikon kanan atas -->
-    <div class="flex items-center space-x-4">
+        <div class="header-right">
+            <button class="icon-btn notif-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 17h5l-1.405-1.405M19 13v-1a8 8 0 10-16 0v1m12 4v1a3 3 0 11-6 0v-1" />
+                </svg>
+                <span class="notif-dot"></span>
+            </button>
 
-      <!-- 🔔 Ikon notifikasi -->
-      <button id="notifBtn" class="relative p-2 rounded-full hover:bg-gray-100 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M15 17h5l-1.405-1.405M19 13v-1a8 8 0 10-16 0v1m12 4v1a3 3 0 11-6 0v-1" />
-        </svg>
-        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-      </button>
-
-      <!-- 👤 Ikon profil -->
-      <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M5.121 17.804A9 9 0 1112 21v-9" />
-        </svg>
-      </div>
-    </div>
-  </header>
-
-  <!-- 🔹 Sidebar -->
-  <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-md transform -translate-x-full md:translate-x-0 transition-all duration-300 z-30 pt-16">
-    <nav class="mt-6 space-y-3">
-      <a href="#" class="flex items-center px-6 py-1 bg-gray-100 text-primary font-semibold border-l-4 border-primary">🏠 Dashboard</a>
-      <a href="#" class="flex items-center px-6 py-1 text-gray-700 hover:bg-gray-100 transition">🕓 Riwayat Akses</a>
-      <a href="#" class="flex items-center px-6 py-1 text-gray-700 hover:bg-gray-100 transition">👤 Kelola Pengguna</a>
-      <a href="#" class="flex items-center px-6 py-1 text-gray-700 hover:bg-gray-100 transition">⚙️ Pengaturan</a>
-    </nav>
-  </aside>
-
-  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-30 hidden z-30"></div>
-
-  <!-- 🔹 Kontainer Utama -->
-  <main class="p-6 mt-16 ml-0 md:ml-64">
-    <h2>Notifikasi Akses Pintu Rumah Aman</h2>
-
-    <!-- Notifikasi -->
-    <div class="notification">
-      <div class="notif-left">
-        <div class="icon success">&#10003;</div>
-        <div class="notif-text">
-          <h3>Akses Sukses</h3>
-          <p>ID Card : ABC1234567</p>
+            <div class="profile-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M5.121 17.804A9 9 0 1112 21v-9" />
+                </svg>
+            </div>
         </div>
-      </div>
-      <div class="time">08.00 &nbsp; 17/08/2025</div>
-    </div>
+    </header>
 
-    <div class="notification">
-      <div class="notif-left">
-        <div class="icon warning">&#10007;</div>
-        <div class="notif-text">
-          <h3>Akses Gagal</h3>
-          <p>ID Card tidak terdaftar</p>
-        </div>
-      </div>
-      <div class="time">08.00 &nbsp; 17/08/2025</div>
-    </div>
+    <!-- ========== SIDEBAR ========== -->
+    <aside id="sidebar" class="sidebar">
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">🏠 Dashboard</a>
+            <a href="#" class="nav-item">🕓 Riwayat Akses</a>
+            <a href="#" class="nav-item">👤 Kelola Pengguna</a>
+            <a href="#" class="nav-item">⚙ Pengaturan</a>
+        </nav>
+    </aside>
 
-    <div class="notification">
-      <div class="notif-left">
-        <div class="icon success">&#10003;</div>
-        <div class="notif-text">
-          <h3>Akses Sukses</h3>
-          <p>ID Card : ABC1234567</p>
-        </div>
-      </div>
-      <div class="time">08.00 &nbsp; 17/08/2025</div>
-    </div>
+    <div id="overlay" class="overlay"></div>
 
-    <div class="notification">
-      <div class="notif-left">
-        <div class="icon success">&#10003;</div>
-        <div class="notif-text">
-          <h3>Akses Sukses</h3>
-          <p>ID Card : ABC1234567</p>
-        </div>
-      </div>
-      <div class="time">08.00 &nbsp; 17/08/2025</div>
-    </div>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+        <h2>Notifikasi Akses Pintu Rumah Aman</h2>
 
-    <div class="notification">
-      <div class="notif-left">
-        <div class="icon error">&#33;</div>
-        <div class="notif-text">
-          <h3>Akses Ilegal</h3>
-          <p>Tidak ada ID Card</p>
-        </div>
-      </div>
-      <div class="time">08.00 &nbsp; 17/08/2025</div>
-    </div>
+        <!-- Template Notifikasi -->
+        <!-- Container Notifikasi dari Firebase -->
+        <div id="notifContainer"></div>
 
-    <div class="notification">
-      <div class="notif-left">
-        <div class="icon error">&#33;</div>
-        <div class="notif-text">
-          <h3>Akses Ilegal</h3>
-          <p>Tidak ada ID Card</p>
-        </div>
-      </div>
-      <div class="time">08.00 &nbsp; 17/08/2025</div>
-    </div>
+        
 
-    <div class="notification">
-      <div class="notif-left">
-        <div class="icon error">&#33;</div>
-        <div class="notif-text">
-          <h3>Akses Ilegal</h3>
-          <p>Tidak ada ID Card</p>
-        </div>
-      </div>
-      <div class="time">08.00 &nbsp; 17/08/2025</div>
-    </div>
+    </main>
 
-  </main>
+    <script type="module" src="../api/firebase_config.js"></script>
+    <script type="module" src="../js/notifikasi.js"></script>
 
 </body>
 </html>

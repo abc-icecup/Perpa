@@ -1,0 +1,190 @@
+<!-- HTML NOTIFIKASI -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpa Smart Lock - Notifikasi</title>
+    
+  <!-- Preload dahulu -->
+  <link rel="preload" href="../css/notifikasi.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../css/notifikasi.css"></noscript>
+
+  <!-- Barulah Tailwind, Kode ini nanti yang akan DIMATIKAN/DIHAPUS -->
+  <script src="https://cdn.tailwindcss.com"></script> 
+
+
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+  <!--  -->
+    <!-- 🔹 Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow z-50 flex items-center justify-between px-6 py-2">
+      <div class="flex items-center gap-3">
+        <button id="menu-btn" class="p-2 rounded-md hover:bg-gray-100 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">P</div>
+          <div>
+            <h1 class="font-semibold text-lg text-primary">Perpa</h1>
+            <p class="text-xs text-gray-500 -mt-1">Smart Lock</p>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- 🔸 Ikon kanan atas -->
+      <div class="flex items-center space-x-4">
+
+        <!-- 🔔 Ikon notifikasi -->
+        <button id="notifBtn" class="relative p-2 rounded-full hover:bg-gray-100 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 17h5l-1.405-1.405M19 13v-1a8 8 0 10-16 0v1m12 4v1a3 3 0 11-6 0v-1" />
+          </svg>
+          <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+        </button>
+
+        <!-- 👤 Ikon profil -->
+        <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5.121 17.804A9 9 0 1112 21v-9" />
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- 🔹 Sidebar -->
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-md transform -translate-x-full md:translate-x-0 transition-all duration-300 z-30 pt-16">
+      <nav class="mt-6 space-y-3">
+        <a href="#" class="flex items-center px-6 py-1 bg-gray-100 text-primary font-semibold border-l-4 border-primary">🏠 Dashboard</a>
+        <a href="#" class="flex items-center px-6 py-1 text-gray-700 hover:bg-gray-100 transition">🕓 Riwayat Akses</a>
+        <a href="#" class="flex items-center px-6 py-1 text-gray-700 hover:bg-gray-100 transition">👤 Kelola Pengguna</a>
+        <a href="#" class="flex items-center px-6 py-1 text-gray-700 hover:bg-gray-100 transition">⚙ Pengaturan</a>
+      </nav>
+    </aside>
+
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-30 hidden z-30"></div>
+
+    <!-- 🔹 Kontainer Utama -->
+    <main class="p-6 mt-16 ml-0 md:ml-64">
+      <h2>Notifikasi Akses Pintu Rumah Aman</h2>
+
+      <!-- Notifikasi -->
+      <div class="notification">
+        <div class="notif-left">
+          <div class="icon success">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <div class="notif-text">
+            <h3>Akses Sukses</h3>
+            <p>ID Card : ABC1234567</p>
+          </div>
+        </div>
+        <div class="time">08.00 &nbsp; 17/08/2025</div>
+      </div>
+
+      <div class="notification">
+        <div class="notif-left">
+          <div class="icon warning">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <div class="notif-text">
+            <h3>Akses Gagal</h3>
+            <p>ID Card tidak terdaftar</p>
+          </div>
+        </div>
+        <div class="time">08.00 &nbsp; 17/08/2025</div>
+      </div>
+
+      <div class="notification">
+        <div class="notif-left">
+          <div class="icon success">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <div class="notif-text">
+            <h3>Akses Sukses</h3>
+            <p>ID Card : ABC1234567</p>
+          </div>
+        </div>
+        <div class="time">08.00 &nbsp; 17/08/2025</div>
+      </div>
+
+      <div class="notification">
+        <div class="notif-left">
+          <div class="icon success">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <div class="notif-text">
+            <h3>Akses Sukses</h3>
+            <p>ID Card : ABC1234567</p>
+          </div>
+        </div>
+        <div class="time">08.00 &nbsp; 17/08/2025</div>
+      </div>
+
+      <div class="notification">
+        <div class="notif-left">
+          <div class="icon system">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+          </div>
+          <div class="notif-text">
+            <h3>Sistem</h3>
+            <p>Tidak ada ID Card</p>
+          </div>
+        </div>
+        <div class="time">08.00 &nbsp; 17/08/2025</div>
+      </div>
+
+      <div class="notification">
+        <div class="notif-left">
+          <div class="icon error">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <div class="notif-text">
+            <h3>Akses Ilegal</h3>
+            <p>Tidak ada ID Card</p>
+          </div>
+        </div>
+        <div class="time">08.00 &nbsp; 17/08/2025</div>
+      </div>
+
+      <div class="notification">
+        <div class="notif-left">
+          <div class="icon error">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <div class="notif-text">
+            <h3>Akses Ilegal</h3>
+            <p>Tidak ada ID Card</p>
+          </div>
+        </div>
+        <div class="time">08.00 &nbsp; 17/08/2025</div>
+      </div>
+
+    </main>
+
+    <script type="module" src="../api/firebase_config.js"></script>
+    <script type="module" src="../js/notifikasi.js"></script>
+</body>
+</html>

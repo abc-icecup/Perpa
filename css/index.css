@@ -193,6 +193,17 @@ body {
   margin-left: 80px; /* saat sidebar ditutup */
 }
 
+/* state normal */
+/* .wrapper .main-content {
+  margin-left: 240px;
+} */
+
+/* saat collapse (WEB MODE) */
+/* .wrapper.sidebar-collapsed .main-content {
+  margin-left: 80px;
+} */
+
+
 /* === DASHBOARD === */
 .dashboard {
   margin-top: 10px;

@@ -1,81 +1,113 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengaturan | Perpa Smart Lock</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/setting.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pengaturan | Perpa Smart Lock</title>
+
+  <!-- Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS (ganti path jika perlu) -->
+  <link rel="stylesheet" href="../css/setting.css">
 </head>
 <body>
-    <div class="container">
-        <!-- SIDEBAR -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <img src="logo.png" alt="Perpa Smart Lock" class="logo">
-                <h2>Perpa<br><span>Smart Lock</span></h2>
-            </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item"><i class="icon-home"></i> Dashboard</a>
-                <a href="#" class="nav-item"><i class="icon-clock"></i> Riwayat Akses</a>
-                <a href="#" class="nav-item"><i class="icon-users"></i> Kelola Pengguna</a>
-                <a href="#" class="nav-item active"><i class="icon-settings"></i> Pengaturan</a>
-            </nav>
-        </aside>
-
-        <!-- MAIN SECTION -->
-        <div class="main-content">
-            <!-- TOP BAR -->
-            <header class="topbar">
-                <button id="menu-btn" class="menu-toggle">&#9776;</button>
-                <div class="search-container">
-                    <input type="text" placeholder="Cari...">
-                </div>
-                <div class="topbar-icons">
-                    <i class="icon-bell"></i>
-                    <i class="icon-user"></i>
-                </div>
-            </header>
-
-            <!-- SETTINGS CONTENT -->
-            <section class="settings">
-                <div class="settings-card">
-                    <h3>Hubungkan Website dengan Telegram</h3>
-
-                    <label>Token bot Telegram</label>
-                    <input type="text" placeholder="Masukkan Token">
-
-                    <label>Chat ID</label>
-                    <input type="text" placeholder="Masukkan Chat ID">
-
-                    <label>Jam Operasional Notifikasi</label>
-                    <div class="time-picker-group">
-                        <div class="time-input">
-                            <input type="text" placeholder="Pilih Waktu Mulai" id="start-time" readonly>
-                        </div>
-                        <div class="time-input">
-                            <input type="text" placeholder="Pilih Waktu Berakhir" id="end-time" readonly>
-                        </div>
-                    </div>
-
-                    <div class="btn-row">
-                        <button class="btn-cancel">Batal</button>
-                        <button class="btn-save">Simpan</button>
-                        <button class="btn-sync">Sinkronisasi Perangkat</button>
-                    </div>
-                </div>
-
-                <div class="duration-card">
-                    <label>Durasi Kunci Pintu Terbuka</label>
-                    <div class="duration-input">
-                        <input type="number" value="5" min="1"> <span>Menit</span>
-                    </div>
-                    <button class="btn-danger">Restart Perangkat</button>
-                </div>
-            </section>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-wrap">
+          <!-- placeholder logo (gantikan dengan file/logo Anda) -->
+          <div class="logo-sticker">P</div>
+          <div class="logo-text">
+            <div class="brand">Perpa</div>
+            <div class="sub">Smart Lock</div>
+          </div>
         </div>
-    </div>
+      </div>
 
+      <nav class="nav">
+        <a class="nav-item" href="#"><span class="nav-ico">🏠</span> Dashboard</a>
+        <a class="nav-item" href="#"><span class="nav-ico">🕒</span> Riwayat Akses</a>
+        <a class="nav-item" href="#"><span class="nav-ico">👥</span> Kelola Pengguna</a>
+        <a class="nav-item active" href="#"><span class="nav-ico">⚙️</span> Pengaturan</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <button id="menu-btn" class="hamburger" aria-label="Toggle sidebar">☰</button>
+        <div class="topbar-search">
+          <input id="search" type="text" placeholder="Cari..." />
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn" title="Notifikasi">🔔</button>
+          <button class="icon-btn" title="Profil">👤</button>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="content">
+        <section class="card settings-card">
+          <h2 class="card-title">Hubungkan Website dengan Telegram</h2>
+
+          <label class="field-label">Token bot Telegram</label>
+          <input id="token" class="field-input" type="text" placeholder="Masukkan Token" />
+
+          <label class="field-label">Chat ID</label>
+          <input id="chatid" class="field-input" type="text" placeholder="Masukkan Chat ID" />
+
+          <label class="field-label">Jam Operasional Notifikasi</label>
+          <div class="time-picker-row">
+            <div class="time-input-wrapper">
+              <div class="input-with-ico">
+                <input id="start-time" class="time-input" type="text" placeholder="Pilih Waktu Mulai" autocomplete="off" />
+                <button class="chev-btn" aria-hidden="true" data-target="start-time" title="Buka picker">
+                  <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="time-input-wrapper">
+              <div class="input-with-ico">
+                <input id="end-time" class="time-input" type="text" placeholder="Pilih Waktu Berakhir" autocomplete="off" />
+                <button class="chev-btn" aria-hidden="true" data-target="end-time" title="Buka picker">
+                  <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- actions: left (Batal,Simpan) & right (Sinkronisasi) -->
+          <div class="card-actions">
+            <div class="actions-left">
+              <button id="btn-cancel" class="btn btn-ghost">Batal</button>
+              <button id="btn-save" class="btn btn-primary">Simpan</button>
+            </div>
+            <div class="actions-right">
+              <button id="btn-sync" class="btn btn-primary outlined">Sinkronisasi Perangkat</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card duration-card">
+          <label class="field-label">Durasi Kunci Pintu Terbuka</label>
+          <div class="duration-row">
+            <input id="duration" class="duration-input" type="number" min="1" value="5" />
+            <div class="duration-label">Menit</div>
+          </div>
+
+          <div class="duration-actions">
+            <button id="btn-restart" class="btn btn-danger">Restart Perangkat</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- JS -->
   <script src="../js/setting.js"></script>
 </body>
 </html>
