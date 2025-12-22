@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpa Smart Lock</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="../css/main.css"> -->
-    <link rel="icon" href="../assets/logo1.png" type="image/png">
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="icon" href="../assets/logo1.png" type="image/png">
 </head>
 
 <body>
@@ -23,99 +23,95 @@
         <main class="main-content">
             <div class="dashboard">
 
+                <!-- ================= STATUS CARDS ================= -->
                 <div class="status-cards">
+
+                    <!-- KONDISI PINTU (DOT ONLY) -->
                     <div class="card kondisi">
                         <h3>Kondisi Pintu</h3>
                         <div class="status-value">
-                            <span class="dot kondisi"></span>
-                            <span class="text-status biru">Tertutup</span>
+                            <span id="dot-kondisi" class="dot kondisi"></span>
+                            <span id="kondisi-text" class="text-status biru">Tertutup</span>
                         </div>
                     </div>
 
+                    <!-- STATUS KUNCI -->
                     <div class="card kunci">
                         <h3>Status Kunci Pintu</h3>
                         <div class="status-value">
-                            <img src="../assets/kunci.svg" class="icon-kunci" alt="">
-                            <span class="text-status biru">Terkunci</span>
+                            <img id="kunci-icon" src="../assets/kunci.svg" class="icon-kunci" alt="Status Kunci">
+                            <span id="kunci-text" class="text-status biru">Terkunci</span>
                         </div>
                     </div>
 
+                    <!-- STATUS SISTEM -->
                     <div class="card sistem">
                         <h3>Status Sistem</h3>
                         <div class="status-value">
-                            <span class="text-status hijau">Online</span>
+                            <span id="status-sistem" class="text-status hijau">Online</span>
                         </div>
                     </div>
 
+                    <!-- JUMLAH AKSES -->
                     <div class="card jumlah">
                         <h3>Jumlah Akses Hari Ini</h3>
                         <div class="status-value">
-                            <span class="text-status angka">25</span>
+                            <span id="jumlah-akses" class="text-status angka">0</span>
                         </div>
                     </div>
 
+                    <!-- STATUS PINTU (AMAN / TIDAK AMAN) -->
                     <div class="card pintu">
                         <h3>Status Pintu</h3>
                         <div class="status-value besar">
-                            <img src="../assets/svgg.svg" alt="" class="secure">
-                            <span class="text-status hijau besar">Aman</span>
+                            <img id="status-pintu-icon" src="../assets/svgg.svg" alt="Status Pintu" class="secure">
+                            <span id="status-pintu-text" class="text-status hijau besar">Aman</span>
                         </div>
                     </div>
+
                 </div>
+                <!-- ================= END STATUS ================= -->
 
-
-                <!-- BAGIAN RIWAYAT -->
+                <!-- ================= RIWAYAT ================= -->
                 <div class="riwayat-card">
                     <h3>Riwayat Akses Terakhir</h3>
+
                     <table>
                         <thead>
-                        <tr>
-                            <th>Waktu</th>
-                            <th>ID RFID</th>
-                            <th>Nama</th>
-                        </tr>
+                            <tr>
+                                <th>Waktu</th>
+                                <th>ID RFID</th>
+                                <th>Nama</th>
+                            </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>08.30</td>
-                            <td>-</td>
-                            <td>System</td>
-                        </tr>
-                        <tr>
-                            <td>08.30</td>
-                            <td>ABC1234567</td>
-                            <td>Ayu</td>
-                        </tr>
-                        <tr>
-                            <td>07.45</td>
-                            <td>-</td>
-                            <td>System</td>
-                        </tr>
+                        <tbody id="riwayat-body">
+                            <!-- realtime firebase -->
                         </tbody>
                     </table>
 
                     <div class="btn-center">
                         <button class="riwayat-btn" onclick="window.location.href='riwayat.html'">
                             Lihat Semua Riwayat
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" class="icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                             </svg>
                         </button>
                     </div>
                 </div>
+                <!-- ================= END RIWAYAT ================= -->
 
             </div>
         </main>
-
     </div>
 
-    <!-- SCRIPT -->
-    <!-- di setiap halaman -->
+    <!-- ================= SCRIPT ================= -->
     <script src="../components/topbar_template.js"></script>
     <script src="../components/sidebar_template.js"></script>
     <script src="../js/topbar.js"></script>
-    
+
+    <!-- firebase dashboard logic (next step) -->
+    <script type="module" src="../js/index.js"></script>
 </body>
 </html>

@@ -9,47 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS (ganti path jika perlu) -->
+   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/setting.css">
 </head>
+
 <body>
-  <div class="app">
+  <!-- TOP BAR -->
+  <header id="topbar-container"></header>
+  
+  <div class="container">
     <!-- SIDEBAR -->
-    <aside id="sidebar" class="sidebar">
-      <div class="sidebar-top">
-        <div class="logo-wrap">
-          <!-- placeholder logo (gantikan dengan file/logo Anda) -->
-          <div class="logo-sticker">P</div>
-          <div class="logo-text">
-            <div class="brand">Perpa</div>
-            <div class="sub">Smart Lock</div>
-          </div>
-        </div>
-      </div>
+    <aside id="sidebar-container"></aside>
 
-      <nav class="nav">
-        <a class="nav-item" href="#"><span class="nav-ico">🏠</span> Dashboard</a>
-        <a class="nav-item" href="#"><span class="nav-ico">🕒</span> Riwayat Akses</a>
-        <a class="nav-item" href="#"><span class="nav-ico">👥</span> Kelola Pengguna</a>
-        <a class="nav-item active" href="#"><span class="nav-ico">⚙️</span> Pengaturan</a>
-      </nav>
-    </aside>
-
-    <!-- MAIN -->
-    <div class="main">
-      <!-- TOPBAR -->
-      <header class="topbar">
-        <button id="menu-btn" class="hamburger" aria-label="Toggle sidebar">☰</button>
-        <div class="topbar-search">
-          <input id="search" type="text" placeholder="Cari..." />
-        </div>
-        <div class="topbar-right">
-          <button class="icon-btn" title="Notifikasi">🔔</button>
-          <button class="icon-btn" title="Profil">👤</button>
-        </div>
-      </header>
-
+    <!-- MAIN CONTENT -->
+      <main class="main-content">
+      
       <!-- CONTENT -->
-      <main class="content">
+      <div class="content">
         <section class="card settings-card">
           <h2 class="card-title">Hubungkan Website dengan Telegram</h2>
 
@@ -103,11 +79,14 @@
             <button id="btn-restart" class="btn btn-danger">Restart Perangkat</button>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   </div>
 
   <!-- JS -->
+  <script src="../components/topbar_template.js"></script>
+  <script src="../components/sidebar_template.js"></script>
+  <script src="../js/topbar.js"></script>
   <script src="../js/setting.js"></script>
 </body>
 </html>

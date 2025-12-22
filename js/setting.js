@@ -7,13 +7,7 @@
 */
 
 (function () {
-  // Sidebar toggle (desktop & mobile)
-  const sidebar = document.getElementById('sidebar');
-  const menuBtn = document.getElementById('menu-btn');
-  menuBtn?.addEventListener('click', function () {
-    // toggle class for mobile; for desktop this will hide
-    sidebar.classList.toggle('open');
-  });
+
 
   /* ---------- TIME PICKER IMPLEMENTATION ---------- */
   // List of time inputs to wire

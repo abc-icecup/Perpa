@@ -5,73 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Akses - Perpa Smart Lock</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/riwayat.css">
 </head>
 <body>
+
+    <!-- TOP BAR -->
+    <header id="topbar-container"></header>
+    
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <img src="https://via.placeholder.com/40" alt="Logo">
-                <div class="logo-text">
-                    <h1>Perpa</h1>
-                    <span>Smart Lock</span>
-                </div>
-            </div>
-            <ul class="menu">
-                <li><i class="icon">🏠</i> Dashboard</li>
-                <li class="active"><i class="icon">⏰</i> Riwayat Akses</li>
-                <li><i class="icon">👥</i> Kelola Pengguna</li>
-                <li><i class="icon">⚙️</i> Pengaturan</li>
-            </ul>
-        </aside>
+        <!-- SIDEBAR -->
+        <aside id="sidebar-container"></aside>
 
-        <!-- Main Content -->
-        <main class="main">
-            <header class="topbar">
-                <div class="search-box">
-                    <input type="text" placeholder="Cari...">
-                    <i class="search-icon">🔍</i>
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+                
+            <section class="content-wrapper">
+                <div class="content-header">
+                    <div class="export-buttons">
+                    <button class="export pdf">Export PDF</button>
+                    <button class="export excel">Export Excel</button>
+                    </div>
                 </div>
-                <div class="top-actions">
-                    <button class="notif-btn">🔔</button>
-                    <button class="user-btn">👤</button>
+
+                <div class="content">
+                    <h2>Riwayat Akses Pintu Rumah Aman</h2>
+                    <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Waktu</th>
+                                <th>ID RFID</th>
+                                <th>Nama</th>
+                                <th>Kondisi pintu</th>
+                                <th>Status Kunci</th>
+                                <th>Status Akses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
-            </header>
-
-              <section class="content-wrapper">
-                  <div class="content-header">
-                      <div class="export-buttons">
-                      <button class="export pdf">Export PDF</button>
-                      <button class="export excel">Export Excel</button>
-                      </div>
-                  </div>
-
-                  <div class="content">
-                      <h2>Riwayat Akses Pintu Rumah Aman</h2>
-                      <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Tanggal</th>
-                                    <th>Waktu</th>
-                                    <th>ID RFID</th>
-                                    <th>Nama</th>
-                                    <th>Kondisi pintu</th>
-                                    <th>Status Kunci</th>
-                                    <th>Status Akses</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                      </div>
-                  </div>
-              </section>
+            </section>
 
         </main>
     </div>
-    
+    <script src="../components/topbar_template.js"></script>
+    <script src="../components/sidebar_template.js"></script>
+    <script src="../js/topbar.js"></script>
     <script type="module" src="../api/firebase_config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.5.28/dist/jspdf.plugin.autotable.min.js"></script>
